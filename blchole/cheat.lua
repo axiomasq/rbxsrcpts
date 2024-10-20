@@ -4,7 +4,7 @@ local MiningModule, err = loadstring(game:HttpGet('https://github.com/axiomasq/r
 MiningModule = MiningModule()
 --// Window 
 local Window = ImGui:CreateWindow({
-	Title = "VICTORY GUI   by. Magic",
+	Title = "VICTORY GUI   by. Magic  Ver. 1",
 	Size = UDim2.new(0, 350, 0, 370),
 	Position = UDim2.new(0.5, 0, 0, 70)
 })
