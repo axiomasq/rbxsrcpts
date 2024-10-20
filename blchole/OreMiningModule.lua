@@ -1,4 +1,3 @@
-﻿
 local OreMiningModule = {}
 
 function OreMiningModule.getRoot(char)
