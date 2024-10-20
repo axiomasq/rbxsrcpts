@@ -72,6 +72,7 @@ function OreMiningModule.getOreHealth(target)
 end
 
 function OreMiningModule.mineOre(oreType)
+    assert(oreType, "OreType cannot be nil")
     local char = OreMiningModule.getCharacter()
     local ore = OreMiningModule.getFirstOre(oreType)
     if ore == nil then warn("ZERO ORE FINDED") return end 
