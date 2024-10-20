@@ -1,28 +1,23 @@
-﻿-- OreMiningModule.lua
-
+﻿
 local OreMiningModule = {}
 
--- Функция для получения корневой части персонажа
 function OreMiningModule.getRoot(char)
 	local rootPart = char:FindFirstChild('HumanoidRootPart') or char:FindFirstChild('Torso') or char:FindFirstChild('UpperTorso')
 	return rootPart
 end
 
--- Функция для телепортации персонажа в указанную позицию
 function OreMiningModule.tpToPos(character, posx, posy, posz)
 	if character and OreMiningModule.getRoot(character) then
         OreMiningModule.getRoot(character).CFrame = CFrame.new(posx, posy, posz)
     end
 end
 
--- Функция для получения текущего персонажа игрока
 function OreMiningModule.getCharacter()
     local Players = game:GetService("Players")
     local plr = Players.LocalPlayer
     return plr.Character
 end
 
--- Функция для отладки: получение информации об объекте
 function OreMiningModule.DEBUGgetObjinfo(tbl)
     print("Тип объекта:", typeof(tbl))
     if tbl.Name then
@@ -46,13 +41,11 @@ function OreMiningModule.DEBUGgetObjinfo(tbl)
     end
 end
 
--- Перечисление типов руды
 OreMiningModule.oresEnum = {
     BlueRock = "BlueRock",
     RedRock = "RedRock"
 }
 
--- Функция для получения первого подходящего объекта руды
 function OreMiningModule.getFirstOre(oreType)
     local ores = workspace.Outside.Cave.Ores:GetChildren()
     for i, ore in ipairs(ores) do
@@ -62,7 +55,6 @@ function OreMiningModule.getFirstOre(oreType)
     end
 end
 
--- Функция для отправки события о майнинге на сервер
 function OreMiningModule.fireMineEvent(target)
     local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -71,23 +63,15 @@ function OreMiningModule.fireMineEvent(target)
         ReplicatedStorage.RemoteEvents.Tools.Drill:FireServer(target)
     end
 
-    local function onMiningResponse(responseMessage)
-        print("[Client] Ответ от сервера:", responseMessage)
-    end
-
-    ReplicatedStorage.RemoteEvents.Tools.Mine.OnClientEvent:Connect(onMiningResponse)
-
     if target then
         startMining(target)
     end
 end
 
--- Функция для получения здоровья руды
 function OreMiningModule.getOreHealth(target)
     return target:GetAttribute("Health")
 end
 
--- Функция для майнинга руды определенного типа
 function OreMiningModule.mineOre(oreType)
     local char = OreMiningModule.getCharacter()
     local ore = OreMiningModule.getFirstOre(oreType)
@@ -109,5 +93,4 @@ function OreMiningModule.mineOre(oreType)
     print("[ORE_MINER]: Finished")
 end
 
--- Возвращаем таблицу с функциями, чтобы они были доступны в других файлах
 return OreMiningModule

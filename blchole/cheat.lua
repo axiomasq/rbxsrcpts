@@ -1,5 +1,7 @@
-local ImGui = loadstring(game:HttpGet('https://github.com/depthso/Roblox-ImGUI/raw/main/ImGui.lua'))()
-local MiningModule = loadstring(game:HttpGet(''))()
+﻿local ImGui, err = loadstring(game:HttpGet('https://github.com/depthso/Roblox-ImGUI/raw/main/ImGui.lua')) if err then warn(err.."  [GUI MODULE]") return end
+ImGui = ImGui()
+local MiningModule, err = loadstring(game:HttpGet('https://raw.githubusercontent.com/axiomasq/rbxsrcpts/refs/heads/main/blchole/OreMiningModule.lua')) if err then warn(err.."  [MINING MODULE]") return end
+MiningModule = MiningModule()
 --// Window 
 local Window = ImGui:CreateWindow({
 	Title = "VICTORY GUI",
@@ -20,6 +22,6 @@ local MineRow = MinersActionsColapH:Row()
 MineRow:Button({
 	Text = "Mine RedOre",
 	Callback = function ()
-
+		MiningModule:mineOre(MiningModule.oresEnum.RedRock)
 	end
 })
