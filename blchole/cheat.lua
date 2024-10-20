@@ -48,7 +48,7 @@ local function startGhostFarm()
             local success, err = pcall(function()
                 if not ghostfarm_is_active then
                     task.wait(2)
-                    return -- Используем return вместо continue для выхода из текущего цикла
+                    return
                 end
                 local ghosts = workspace.Ghosts:GetChildren()
                 if #ghosts == 0 then
@@ -85,7 +85,6 @@ local function startGhostFarm()
             end)
 
             if not success then
-                -- Ошибка произошла, выводим её и перезапускаем через 5 секунд
                 print("Error in ghost farm: " .. err)
                 task.wait(5)
             end
