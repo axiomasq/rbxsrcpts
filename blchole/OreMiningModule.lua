@@ -74,7 +74,7 @@ end
 function OreMiningModule.mineOre(oreType)
     local char = OreMiningModule.getCharacter()
     local ore = OreMiningModule.getFirstOre(oreType)
-    if ore == nil then warn("ZERO ORE FINDED") end 
+    if ore == nil then warn("ZERO ORE FINDED") return end 
     local health = OreMiningModule.getOreHealth(ore)
     local infinite_cycle_breaker = 0
 
