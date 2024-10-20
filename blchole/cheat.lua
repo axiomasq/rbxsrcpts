@@ -4,7 +4,7 @@ local MiningModule, err = loadstring(game:HttpGet('https://github.com/axiomasq/r
 MiningModule = MiningModule()
 --// Window 
 local Window = ImGui:CreateWindow({
-	Title = "VICTORY GUI",
+	Title = "VICTORY GUI   by. Magic",
 	Size = UDim2.new(0, 350, 0, 370),
 	Position = UDim2.new(0.5, 0, 0, 70)
 })
@@ -43,7 +43,7 @@ Keybinds:Keybind({
 })
 local ghostfarm_is_active = false
 local function startGhostFarm()
-    local ghostfarm = coroutine.wrap(function()
+    ghostfarm = coroutine.wrap(function()
         while true do
             local success, err = pcall(function()
                 if not ghostfarm_is_active then
