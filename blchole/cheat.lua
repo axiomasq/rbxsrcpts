@@ -1,4 +1,4 @@
-﻿local ImGui, err = loadstring(game:HttpGet('https://github.com/depthso/Roblox-ImGUI/raw/main/ImGui.lua')) if err then warn(err.."  [GUI MODULE]") return end
+local ImGui, err = loadstring(game:HttpGet('https://github.com/depthso/Roblox-ImGUI/raw/main/ImGui.lua')) if err then warn(err.."  [GUI MODULE]") return end
 ImGui = ImGui()
 local MiningModule, err = loadstring(game:HttpGet('https://github.com/axiomasq/rbxsrcpts/raw/main/blchole/OreMiningModule.lua')) if err then warn(err.."  [MINING MODULE]") return end
 MiningModule = MiningModule()
